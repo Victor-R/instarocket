@@ -22,7 +22,7 @@ export default class Feed extends Component {
     }
 
     registerToSocket = () => {
-        const socket = io('http://localhost:3333');
+        const socket = io(process.env.REACT_APP_API_URL);
 
         socket.on('post', newPost => {
             this.setState({
@@ -58,7 +58,7 @@ export default class Feed extends Component {
 
                             </header>
 
-                            <img src={`http://localhost:3333/files/${post.image}`} alt='' />
+                            <img src={`${process.env.REACT_APP_API_URL}/files/${post.image}`} alt='' />
 
                             <footer>
                                 <div className='actions'>
